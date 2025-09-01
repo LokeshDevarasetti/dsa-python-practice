@@ -1,1 +1,11 @@
+# vscode settings
 .vscode
+
+# Ignore virtual environments
+envs/
+
+# Virtual environment configs
+*.venv
+
+
+model_training/
