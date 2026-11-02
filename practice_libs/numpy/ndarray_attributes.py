@@ -1,4 +1,5 @@
 import numpy as np
+import numpy.random as rg
 
 # sample array of 3 dimensions. shape will be (3, 5)
 a = np.arange(15).reshape(3, 5)
@@ -70,3 +71,6 @@ print("Array data type:", b_reshaped.dtype)
 print("Array item size:", b_reshaped.itemsize, "bytes")
 print("Array total size:", b_reshaped.nbytes, "bytes")
 print("Array size:", b_reshaped.size)
+
+
+print('rg.random((2, 2)) \n', rg.random((2, 4,2, 5)))  # random values in a 2x2 array

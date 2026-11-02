@@ -73,3 +73,51 @@ print('Square root of each element in A \n', np.sqrt(A))
 print('Exponential (e^x) of each element in A \n', np.exp(A))
 print('Natural logarithm (ln) of each element in A \n', np.log(A))
 print('Base-10 logarithm (log10) of each element in A \n', np.log10(A))
+
+# indexing and slicing
+# 1D array
+p = np.arange(10)**2
+print('Array p:', p)
+print('p[2]:', p[2])      # third element
+print('p[2:5]:', p[2:5])  # elements from index 2 to 4
+p[0:5] = 1000  # set first five elements to 1000
+print('After setting first five elements to 1000, p:', p)
+p[:6:2] = 80 # from start to position 6, exclusive, set every 2nd element to 80
+print('After setting every 2nd element to 80 up to index 6, p:', p)
+print('Last element p[-1]:', p[-1])  # last element
+print('Last three elements p[-3:]:', p[-3:])  # last three elements
+p[::-1]  # reversed array
+print('Reversed array p:', p)
+for i in p:
+    print(i**(1/2))  # square root of each element
+
+# 2D array
+def fun(x, y):
+    return 10 * x + 2*y
+q = np.fromfunction(fun, (5, 4), dtype=int)
+print('Array q:\n', q)
+print('q[2,3]:', q[2,3])    # element at 3rd row, 4th column
+print('q[1:3,0:3]: ', q[1:3,0:3])  # sub-array from 2nd to 3rd row, 1st to 3rd column
+
+# 3D array
+r = np.array([[[  0,  1,  2],  # a 3D array (two stacked 2D arrays)
+               [ 10, 12, 13]],
+              [[100, 101, 102],
+               [110, 112, 113]]])
+print('3D array r:\n', r)
+print('shape of r:', r.shape)
+print('r[1, ...]: \n', r[1, ...])  # all elements from 2nd 2D array
+
+# iterating
+print('Iterating over each element in r:')
+for row in r:
+    print(row)
+
+print('Iterating over each element in r using nditer:')
+for x in np.nditer(r):
+    print(x)
+
+print('iterating using flat. r.flat is an iterator that iterates over all elements of the array:')
+for x in r.flat:
+    print(x)
+print('q[1:3,0:3]: ', q[:,1])
